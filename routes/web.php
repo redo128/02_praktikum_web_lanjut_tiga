@@ -24,11 +24,11 @@ Route::prefix("product")->group(function () {
     Route::get("/riri-story-books",[ProductController::class, 'product3'] );
     Route::get("/kolak-kids-songs",[ProductController::class, 'product4'] );
 });
-Route::get('/news/{topik}', function ($id) {
+Route::get('/news/{topik}', function ($topik) {
     return redirect ('https://www.educastudio.com/news/'.$topik);
     });
     Route::prefix("program")->group(function () {
-        Route::get('/kari', function(){
+        Route::get('/karir', function(){
             return redirect("https://www.educastudio.com/program/karir");
         });
         Route::get('/magang', function(){
