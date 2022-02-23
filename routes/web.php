@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Home;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ContactController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +18,7 @@ use App\Http\Controllers\ProductController;
 
 Route::get('/index', [Home::class, 'home']);
 Route::redirect('/', "https://www.educastudio.com/");
-Route::prefix("Product")->group(function () {
+Route::prefix("product")->group(function () {
     Route::get("/marbel-edu-games",[ProductController::class, 'product1'] );
     Route::get("/marbel-and-friends-kids-games",[ProductController::class, 'product2'] );
     Route::get("/riri-story-books",[ProductController::class, 'product3'] );
@@ -38,3 +39,7 @@ Route::get('/news/{topik}', function ($id) {
         });
     });
     Route::redirect('/about', "https://www.educastudio.com/about-us");
+    
+    Route::resource('/contact-us', ContactController::class, [
+        'only' => ['index']
+    ]);
